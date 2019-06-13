@@ -1,18 +1,16 @@
-package server;
+package main.java.server;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.util.logging.Level;
 
-import com.sun.istack.internal.logging.Logger;
-
+import org.apache.log4j.Logger;
 
 public class EchoServer extends Thread {
 	private DatagramSocket socket;
     private boolean running;
     private byte[] buf = new byte[256];
-    Logger log;
+    Logger log = Logger.getLogger(EchoServer.class);;
  
     public EchoServer() throws SocketException {
         socket = new DatagramSocket(4445);
@@ -41,7 +39,7 @@ public class EchoServer extends Thread {
         	}
         	catch (Exception ex)
         	{
-        		log.logException(ex, Level.SEVERE);
+        		log.error(ex);
         	}
         }
         socket.close();

@@ -1,15 +1,14 @@
-package app;
+package main.java.app;
 
 import java.net.SocketException;
-import java.util.logging.Level;
 
-import com.sun.istack.internal.logging.Logger;
+import org.apache.log4j.Logger;
 
-import server.EchoServer;
+import main.java.server.EchoServer;
 
 public class RodaServer {
 	
-	static Logger log;
+	static Logger log = Logger.getLogger(RodaServer.class);
 	
 	public static void main(String[] args) {
 		EchoServer server;
@@ -18,7 +17,7 @@ public class RodaServer {
 			server.start();
 			
 		} catch (SocketException e) {
-			log.logException(e, Level.SEVERE);
+			log.error(e);
 		}
 		
 	}
