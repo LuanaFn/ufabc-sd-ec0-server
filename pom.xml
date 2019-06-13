@@ -30,9 +30,9 @@
 				  </excludes>
 				  <archive>
 				    <manifest>
-					<addClasspath>true</addClasspath>
-					<mainClass>com.mkyong.core.utils.App</mainClass>
-					<classpathPrefix>dependency-jars/</classpathPrefix>
+
+					<mainClass>main.java.RodaServer</mainClass>
+					
 				    </manifest>
 				  </archive>
 				</configuration>
