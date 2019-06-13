@@ -31,7 +31,7 @@
 				  <archive>
 				    <manifest>
 
-					<mainClass>main.java.RodaServer</mainClass>
+					<mainClass>main.java.app.RodaServer</mainClass>
 					
 				    </manifest>
 				  </archive>
