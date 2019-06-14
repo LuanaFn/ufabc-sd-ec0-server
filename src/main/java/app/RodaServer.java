@@ -1,10 +1,10 @@
-package main.java.app;
+package app;
 
 import java.net.SocketException;
 
 import org.apache.log4j.Logger;
 
-import main.java.server.EchoServer;
+import server.EchoServer;
 
 public class RodaServer {
 	
@@ -14,7 +14,7 @@ public class RodaServer {
 		EchoServer server;
 		try {
 			server = new EchoServer();
-			server.start();
+			server.start(); 
 			
 		} catch (SocketException e) {
 			log.error(e);

@@ -1,4 +1,4 @@
-package main.java.server;
+package server;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -49,7 +49,7 @@ public class EchoServer extends Thread {
 				recebidos.add(received);
 				
 				//socket.send(packet);
-				
+				log.info("teste");
 				timerR.config(recebidos, socket, packet);
 			} catch (Exception ex) {
 				log.error(ex);

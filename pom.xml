@@ -6,35 +6,24 @@
 	<artifactId>ufabc-sd-ec0-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
-				<!--configuration>
-					<release>11</release>
-				</configuration-->
+				<!--configuration> <release>11</release> </configuration -->
 			</plugin>
-<!-- Make this jar executable -->
+			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
-				  <excludes>
-					<exclude>**/log4j.properties</exclude>
-				  </excludes>
-				  <archive>
-				    <manifest>
+					<archive>
+						<manifest>
 
-					<mainClass>main.java.app.RodaServer</mainClass>
-					
-				    </manifest>
-				  </archive>
+							<mainClass>main.java.app.RodaServer</mainClass>
+
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
