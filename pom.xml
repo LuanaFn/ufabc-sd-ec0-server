@@ -20,10 +20,21 @@
 					<archive>
 						<manifest>
 
-							<mainClass>app.RodaServer</mainClass>
+							<mainClass>main.java.app.RodaServer</mainClass>
 
 						</manifest>
 					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.8</version>
+				<configuration>
+					<processTypes>
+						<web>java -jar target/ufabc-sd-ec0-server-0.0.1-SNAPSHOT.jar</web>
+					</processTypes>
 				</configuration>
 			</plugin>
 		</plugins>
