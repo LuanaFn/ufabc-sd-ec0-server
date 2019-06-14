@@ -20,7 +20,7 @@
 					<archive>
 						<manifest>
 
-							<mainClass>main.java.app.RodaServer</mainClass>
+							<mainClass>app.RodaServer</mainClass>
 
 						</manifest>
 					</archive>
