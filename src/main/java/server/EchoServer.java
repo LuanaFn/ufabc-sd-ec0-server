@@ -15,7 +15,7 @@ public class EchoServer extends Thread {
 
 	public EchoServer() throws SocketException {
 		
-		timer.schedule(timerR, 0, 5000);
+		timer.schedule(timerR, 0, 10000);
 		socket = new DatagramSocket(4445);
 	}
 

@@ -24,22 +24,22 @@ public class TimerResposta extends TimerTask {
 	public void run() {
 
 		if (!recebidos.isEmpty()) {
-			Collections.sort(recebidos, new Comparator<Recebido>() {
-				public int compare(Recebido a, Recebido b) {
-					return a.getRecebido().compareTo(b.getRecebido());
-				}
-			});
+			
+			if(recebidos.size() > 1)
+				Collections.sort(recebidos, new Comparator<Recebido>() {
+					public int compare(Recebido a, Recebido b) {
+						return a.getRecebido().compareTo(b.getRecebido());
+					}
+				});
 
 			try {
 
 				//envia cada mensagem de volta ao cliente
-				for (int i = 0; i < recebidos.size(); i++) {
-					Recebido r = recebidos.get(i);
-					
-					String salvo = r.getRecebido();
+				while (recebidos.size() > 0) {
+					Recebido r = recebidos.remove(0);
 					
 					//captura apenas a mensagem
-					String msg = salvo.split(prefixo)[1];
+					String msg = r.getRecebido().split(prefixo)[1];
 					
 					InetAddress address = r.getPacket().getAddress();
 					int port = r.getPacket().getPort();
@@ -49,9 +49,8 @@ public class TimerResposta extends TimerTask {
 					DatagramPacket packet = new DatagramPacket(buf, buf.length, address, port);
 
 					r.getSocket().send(packet);
-					System.out.println("Enviou a mensagem: " + msg);
+					System.out.println("Enviou a mensagem: " + msg + " - que era a mensagem " + r.getRecebido().split(prefixo)[0]);
 					
-					recebidos.remove(i);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
