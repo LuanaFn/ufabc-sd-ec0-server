@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TimerTask;
 
@@ -23,7 +24,11 @@ public class TimerResposta extends TimerTask {
 	public void run() {
 
 		if (!recebidos.isEmpty()) {
-			Collections.sort(recebidos, (r1, r2) -> r1.getRecebido().compareTo(r2.getRecebido()));
+			Collections.sort(recebidos, new Comparator<Recebido>() {
+				public int compare(Recebido a, Recebido b) {
+					return a.getRecebido().compareTo(b.getRecebido());
+				}
+			});
 
 			try {
 
