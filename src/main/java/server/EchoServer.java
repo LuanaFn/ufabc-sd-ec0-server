@@ -4,11 +4,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
-
-import org.apache.log4j.Logger;
 
 public class EchoServer extends Thread {
 	private DatagramSocket socket;
@@ -16,9 +12,6 @@ public class EchoServer extends Thread {
 	private byte[] buf = new byte[256];
 	Timer timer = new Timer();
 	TimerResposta timerR = new TimerResposta();
-	Logger log = Logger.getLogger(EchoServer.class);
-	
-	List recebidos = new ArrayList<String>();
 
 	public EchoServer() throws SocketException {
 		
@@ -46,13 +39,9 @@ public class EchoServer extends Thread {
 					continue;
 				}
 				
-				recebidos.add(received);
-				
-				//socket.send(packet);
-				log.info("teste");
-				timerR.config(recebidos, socket, packet);
+				timerR.recebe(received, socket, packet);
 			} catch (Exception ex) {
-				log.error(ex);
+				ex.printStackTrace();
 			}
 		}
 		socket.close();

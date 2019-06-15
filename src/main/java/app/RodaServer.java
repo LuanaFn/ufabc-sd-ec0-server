@@ -2,13 +2,9 @@ package app;
 
 import java.net.SocketException;
 
-import org.apache.log4j.Logger;
-
 import server.EchoServer;
 
 public class RodaServer {
-	
-	static Logger log = Logger.getLogger(RodaServer.class);
 	
 	public static void main(String[] args) {
 		EchoServer server;
@@ -17,7 +13,7 @@ public class RodaServer {
 			server.start(); 
 			
 		} catch (SocketException e) {
-			log.error(e);
+			e.printStackTrace();
 		}
 		
 	}
